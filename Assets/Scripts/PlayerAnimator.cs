@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    public Animator animBody;
-    public Animator animTail;
-    public Animator animHead;
-    public Animator animTongue;
+    [SerializeField]
+    private Animator anim;
+    public Animator Anim
+    {
+        get => anim;
+        private set => anim = value;
+    }
 
   
     private Player player;

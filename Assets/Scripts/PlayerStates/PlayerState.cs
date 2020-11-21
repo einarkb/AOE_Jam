@@ -5,12 +5,14 @@ using UnityEngine;
 public abstract class PlayerState
 {
     protected Player player;
+    protected PlayerAnimator playerAnimator;
 
     public abstract PlayerStateType stateType { get;}
 
     public virtual void Initialize(Player player)
     {
         this.player = player;
+        playerAnimator = player.GetComponent<PlayerAnimator>();
     }
 
     public virtual void OnCollisionEnter(Collision2D collision) { }

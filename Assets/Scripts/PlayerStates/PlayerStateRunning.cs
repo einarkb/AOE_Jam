@@ -20,12 +20,13 @@ public class PlayerStateRunning : PlayerState
 
     public override void OnEnter()
     {
+        playerAnimator.Anim.SetBool("Standing", true);
         Debug.Log("Running entered");
     }
 
     public override void OnExit()
     {
-     
+        playerAnimator.Anim.SetBool("Standing", false);
     }
 
     public override void OnUpdate()
@@ -51,6 +52,8 @@ public class PlayerStateRunning : PlayerState
             }
         }
 
-      
+        playerAnimator.Anim.SetFloat("VelocityX", Mathf.Abs(rb.velocity.x) / maxRunSpeed);
+
+
     }
 }

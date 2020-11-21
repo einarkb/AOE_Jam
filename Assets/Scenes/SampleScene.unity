@@ -3958,19 +3958,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1770900578294057411, guid: 75d288743f6860249b95bec7f5a42c00, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1770900578294057411, guid: 75d288743f6860249b95bec7f5a42c00, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.8499527
+      value: -0.98212546
       objectReference: {fileID: 0}
     - target: {fileID: 1770900578294057411, guid: 75d288743f6860249b95bec7f5a42c00, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.52685905
+      value: 0.18822774
       objectReference: {fileID: 0}
     - target: {fileID: 1770900578294057411, guid: 75d288743f6860249b95bec7f5a42c00, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -158.301
       objectReference: {fileID: 0}
     - target: {fileID: 1770900578294057411, guid: 75d288743f6860249b95bec7f5a42c00, type: 3}
       propertyPath: m_LocalRotation.y
@@ -6641,10 +6641,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2062014264}
-  - component: {fileID: 2062014265}
   - component: {fileID: 2062014266}
   - component: {fileID: 2062014267}
   - component: {fileID: 2062014268}
+  - component: {fileID: 2062014265}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6680,10 +6680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1506f39db1c6477448534877406c9ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animBody: {fileID: 0}
-  animTail: {fileID: 0}
-  animHead: {fileID: 0}
-  animTongue: {fileID: 0}
+  anim: {fileID: 1578412601}
   objectToFlip: {fileID: 1578412600}
 --- !u!50 &2062014266
 Rigidbody2D:
