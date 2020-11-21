@@ -14,13 +14,18 @@ public class Player : MonoBehaviour
     [SerializeField]
     private PlayerState currentState;
 
+
     public PlayerState CurrentState
     {
         get => currentState;
         private set => currentState = value;
     }
 
+    public float faceDir { get; private set; } = 1f;
+
     public bool IsInputAllowed { get; set; } = true;
+
+    private Rigidbody2D rb;
 
     public void ChangeState(PlayerStateType stateType)
     {
@@ -35,10 +40,23 @@ public class Player : MonoBehaviour
     private void Update()
     {
         currentState?.OnUpdate();
+
+        if (rb.velocity.x > 0.1f)
+        {
+            faceDir = 1;
+            EventManager.Instance.playerFacingDirectionChanged?.Invoke(1);
+        }
+        else if (rb.velocity.x < -0.1f)
+        {
+            EventManager.Instance.playerFacingDirectionChanged?.Invoke(-1);
+            faceDir = -1;
+        }
     }
 
     private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+
         PlayerStates = new Dictionary<PlayerStateType, PlayerState>();
 
         PlayerStates.Add(PlayerStateType.Idling, new PlayerStateIdle());

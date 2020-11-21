@@ -26,16 +26,21 @@ public class PlayerAnimator : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void OnEnable()
     {
-        if (rb.velocity.x > 0f)
-        {
-            objectToFlip.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        }
-        else if (rb.velocity.x < 0f)
-        {
-            objectToFlip.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-        }
+        EventManager.Instance.playerFacingDirectionChanged += (val) => FlipGraphics(val);
+    }
+
+    private void OnDisable()
+    {
+        EventManager.Instance.playerFacingDirectionChanged -= (val) => FlipGraphics(val);
+    }
+
+    private void FlipGraphics(float dir)
+    {
+        float y = Mathf.Clamp01(dir);
+        objectToFlip.transform.rotation = Quaternion.Euler(0f, y * 180f, 0f);
     }
 }
