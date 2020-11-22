@@ -15,6 +15,14 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
+    private Owner owner;
+    public Owner Owner
+    {
+        get => owner;
+        private set => owner = value;
+    }
+
+    [SerializeField]
     private Camera cam;
     public Camera Cam
     {

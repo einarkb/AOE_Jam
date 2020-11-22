@@ -43,7 +43,7 @@ public class ObjectiveJump : Objective
             if (objectiveTimeLeft <= 0f)
             {
                 base.ObjectiveFailed();
-                gameObject.SetActive(false);
+                Destroy(this.gameObject);
             }
         }
     }

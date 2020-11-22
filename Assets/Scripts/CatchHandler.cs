@@ -6,6 +6,11 @@ public class CatchHandler : MonoBehaviour
 {
     [SerializeField]
     private Transform catchSlot;
+    public Transform CatchSlot
+    {
+        get => catchSlot;
+        private set => catchSlot = value;
+    }
     
     [SerializeField] 
     Collider2D interactionCollider;

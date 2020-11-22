@@ -6,7 +6,7 @@ public class Owner : MonoBehaviour
 {
     public float taskDelay = 2f;
 
-
+    public Transform throwFrom;
 
     private void OnEnable()
     {

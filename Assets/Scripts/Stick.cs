@@ -12,6 +12,8 @@ public class Stick : MonoBehaviour, ICatchable
 
 
     private Rigidbody2D rb;
+
+    public FetchingObjective fetchObj;
   
 
     private void Start()
@@ -41,5 +43,17 @@ public class Stick : MonoBehaviour, ICatchable
     private void OnCollisionEnter2D(Collision2D collision)
     {
         transform.gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Owner"))
+        {
+            CatchHandler ch = GameManager.Instance.Player.GetComponent<CatchHandler>();
+            if (ch.CatchSlot.childCount == 0)
+            {
+                fetchObj?.StickReachedGoal();
+            }
+        }
     }
 }
