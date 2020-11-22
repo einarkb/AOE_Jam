@@ -16,6 +16,15 @@ public class EventManager : MonoBehaviour
     public delegate void TaskFailed(Task task);
     public TaskFailed taskFailed;
 
+    public delegate void OnGameStart();
+    public OnGameStart onGameStart;
+
+    public delegate void OnGameOver();
+    public OnGameOver onGameover;
+
+    public delegate void PlayerStateChanged(PlayerStateType stateType);
+    public PlayerStateChanged playerStateChanged;
+
 
     private void Awake()
     {

@@ -14,7 +14,8 @@ public class TaskManager : MonoBehaviour
         int count = allTasks.Count;
         if (count > 0)
         {
-            return allTasks[Random.Range(0, count - 1)];
+
+            return allTasks[Random.Range(0, count)];
         }
         return null;
     }

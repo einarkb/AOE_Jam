@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
             currentState?.OnExit();
             currentState = PlayerStates[stateType];
             currentState.OnEnter();
+            EventManager.Instance.playerStateChanged?.Invoke(stateType);
         }
     }
 

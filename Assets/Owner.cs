@@ -6,32 +6,42 @@ public class Owner : MonoBehaviour
 {
     public float taskDelay = 2f;
 
-    private void Start()
-    {
-        StartCoroutine(StartTask());
-    }
+
 
     private void OnEnable()
     {
         Debug.Log(EventManager.Instance);
-        EventManager.Instance.taskCompleted += (task) => StartNewTask();
-        EventManager.Instance.taskFailed += (task) => StartNewTask();
+        EventManager.Instance.taskCompleted += (task) => StartNewTask(taskDelay);
+        EventManager.Instance.taskFailed += (task) => GameOver();
+        EventManager.Instance.onGameStart += () => StartGame();
     }
 
     private void OnDisable()
     {
-        EventManager.Instance.taskCompleted -= (task) => StartNewTask();
-        EventManager.Instance.taskFailed -= (task) => StartNewTask();
+        EventManager.Instance.taskCompleted -= (task) => StartNewTask(taskDelay);
+        EventManager.Instance.taskFailed -= (task) => GameOver();
+        EventManager.Instance.onGameStart -= () => StartGame();
     }
 
-    private void StartNewTask()
+    private void StartNewTask(float delay)
     {
-        StartCoroutine(StartTask());
+        StartCoroutine(StartTask(delay));
     }
 
-    private IEnumerator StartTask()
+    private IEnumerator StartTask(float delay)
     {
-        yield return new WaitForSeconds(taskDelay);
+        yield return new WaitForSeconds(delay);
         GameManager.Instance.TaskManager.StartRandomTask();
+    }
+
+    private void GameOver()
+    {
+        EventManager.Instance.onGameover?.Invoke();
+    }
+
+    private void StartGame()
+    {
+        GameManager.Instance.ChatBubbleManager.OwnerSpeaking.ShowMessage("Time to train, Get ready!", 2f);
+        StartNewTask(4f);
     }
 }
