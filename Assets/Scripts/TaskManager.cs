@@ -8,11 +8,6 @@ public class TaskManager : MonoBehaviour
     public List<Task> allTasks = new List<Task>();
     public Task activeTask;
 
-    void Start()
-    {
-        StartRandomTask();
-    }
-
 
     private Task GetRandomTask()
     {

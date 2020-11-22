@@ -50,8 +50,14 @@ public class ChatBubble : MonoBehaviour
         Text.transform.rotation = Quaternion.identity;
     }
 
-    public void ShowMessage(string text, float duration)
+    public void ShowMessage(string text, float duration, float delay = 0f)
     {
+        GameManager.Instance.StartCoroutine(MSG(text, duration, delay));
+    }
+
+    private IEnumerator MSG(string text, float duration, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         this.text.text = text;
         this.duration = duration;
         durationLeft = duration;
@@ -59,9 +65,8 @@ public class ChatBubble : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
-     
+
         UpdatePosition();
-     
     }
 
     private void Update()

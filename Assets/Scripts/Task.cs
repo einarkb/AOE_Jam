@@ -6,9 +6,12 @@ using UnityEngine;
 public class Task
 {
     public List<Objective> objectives = new List<Objective>();
+
+
     public string startMessage;
     public string completeMessage;
     public string failedMessage;
+    public string completePlayerThinking;
 
     [HideInInspector]
     public int currentObjective = -1;
@@ -24,6 +27,8 @@ public class Task
         {
             Objective o = GameManager.Instantiate(objectives[currentObjective]);
             o.StartObjective(this);
+            Msg(startMessage, 2f);
+
         }
     }
 
@@ -31,7 +36,10 @@ public class Task
     {
         if (currentObjective + 1 >= count)
         {
-            Debug.Log("Task Completed");
+            Msg(completeMessage, 2f);
+            GameManager.Instance.ChatBubbleManager.PlayerThinking.ShowMessage(completePlayerThinking, 2f, 0.8f);
+            EventManager.Instance.taskCompleted?.Invoke(this);
+
         }
         else
         {
@@ -42,8 +50,14 @@ public class Task
 
     public void ObjectiveFailed()
     {
-        Debug.Log("Task Failed");
+   
+        Msg(failedMessage, 2f);
+        EventManager.Instance.taskFailed?.Invoke(this);
     }
 
+    private void Msg(string text, float duration)
+    {
+        GameManager.Instance.ChatBubbleManager.OwnerSpeaking.ShowMessage(text, duration);
+    }
 
 }

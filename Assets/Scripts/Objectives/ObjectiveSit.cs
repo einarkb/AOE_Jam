@@ -41,6 +41,7 @@ public class ObjectiveSit : Objective
                         Debug.Log("goalComplete");
                         isActive = false;
                         base.ObjectiveCompleted();
+                        Destroy(this);
 
                         return;
                     }
@@ -58,6 +59,7 @@ public class ObjectiveSit : Objective
                 {
                     Debug.Log("Failed");
                     base.ObjectiveFailed();
+                    Destroy(this);
                 }
             }
 

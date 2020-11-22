@@ -10,6 +10,12 @@ public class EventManager : MonoBehaviour
     public delegate void PlayerFacingDirectionChanged(float dir);
     public PlayerFacingDirectionChanged playerFacingDirectionChanged;
 
+    public delegate void TaskCompleted(Task task);
+    public TaskCompleted taskCompleted;
+
+    public delegate void TaskFailed(Task task);
+    public TaskFailed taskFailed;
+
 
     private void Awake()
     {
@@ -17,5 +23,6 @@ public class EventManager : MonoBehaviour
         {
             Instance = this;
         }
+        Debug.Log(EventManager.Instance);
     }
 }
