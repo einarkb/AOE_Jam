@@ -31,6 +31,14 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
+    private ChatBubbleManager chatBubbleManager;
+    public ChatBubbleManager ChatBubbleManager
+    {
+        get => chatBubbleManager;
+        set => chatBubbleManager = value;
+    }
+
+    [SerializeField]
     private Canvas canvas;
     public Canvas Canvas
     {

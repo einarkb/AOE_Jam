@@ -6,6 +6,10 @@ using UnityEngine;
 public class Task
 {
     public List<Objective> objectives = new List<Objective>();
+    public string startMessage;
+    public string completeMessage;
+    public string failedMessage;
+
     [HideInInspector]
     public int currentObjective = -1;
 
