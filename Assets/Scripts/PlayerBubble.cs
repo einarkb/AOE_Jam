@@ -30,4 +30,6 @@ public class PlayerBubble : MonoBehaviour
         transform.rotation = attachedTo.rotation;
         Text.transform.rotation = Quaternion.identity;
     }
+
+
 }

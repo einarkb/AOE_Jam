@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
+    private TaskManager taskManager;
+    public TaskManager TaskManager
+    {
+        get => taskManager;
+        set => taskManager = value;
+    }
+
+    [SerializeField]
     private Canvas canvas;
     public Canvas Canvas
     {
