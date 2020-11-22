@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStateRunning : PlayerState
 {
     [SerializeField]
-    private float maxRunSpeed = 4f;
+    private float maxRunSpeed = 6f;
 
 
     private Rigidbody2D rb;

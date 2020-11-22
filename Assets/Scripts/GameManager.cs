@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
         set => cam = value;
     }
 
+    [SerializeField]
+    private Canvas canvas;
+    public Canvas Canvas
+    {
+        get => canvas;
+        set => canvas = value;
+    }
+
 
     [SerializeField]
     private float parallaxStrength = 2f;
