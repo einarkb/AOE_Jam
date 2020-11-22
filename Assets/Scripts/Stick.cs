@@ -30,14 +30,14 @@ public class Stick : MonoBehaviour, ICatchable
     public void Release(Vector2 parentVelocity)
     {
 
-        Debug.Log(GameManager.Instance.Player.faceDir);
+        //Debug.Log(GameManager.Instance.Player.faceDir);
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;
         rb.angularVelocity = 0f;
         rb.AddForce(parentVelocity + new Vector2(releaseVelocity.x *  GameManager.Instance.Player.faceDir, releaseVelocity.y), ForceMode2D.Impulse);
         rb.AddTorque(rotationForce * GameManager.Instance.Player.faceDir * rb.velocity.magnitude, ForceMode2D.Impulse);
        // Physics2D.Simulate(Time.deltaTime);
-        Debug.Log(parentVelocity);
+        //Debug.Log(parentVelocity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -21,7 +21,7 @@ public class PlayerStateRunning : PlayerState
     public override void OnEnter()
     {
         playerAnimator.Anim.SetBool("Standing", true);
-        Debug.Log("Running entered");
+        //Debug.Log("Running entered");
     }
 
     public override void OnExit()

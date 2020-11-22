@@ -32,6 +32,8 @@ public class FetchingObjective : Objective
         Vector2 vel = new Vector2(x, y);
         rb.AddForce(vel, ForceMode2D.Impulse);
         rb.AddTorque(0.05f * vel.magnitude, ForceMode2D.Impulse);
+
+        GameManager.Instance.Owner.GetComponentInParent<Animator>().SetTrigger("Throwing");
     }
 
 
@@ -43,12 +45,18 @@ public class FetchingObjective : Objective
         if (timeLimit > 0f)
         {
             objectiveTimeLeft -= Time.deltaTime;
+            GameManager.Instance.mainMenu.objectiveTimeLeft = Mathf.Max(0f, objectiveTimeLeft);
             if (objectiveTimeLeft <= 0f)
             {
                 base.ObjectiveFailed();
                 Destroy(this.gameObject);
-                Destroy(stick.gameObject);
+                if (stick != null)
+                {
+                    Destroy(stick.gameObject);
+                }
             }
         }
     }
+
+ 
 }

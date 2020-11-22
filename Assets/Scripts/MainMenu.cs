@@ -12,6 +12,11 @@ public class MainMenu : MonoBehaviour
     public TMPro.TextMeshProUGUI gameOverText;
     public TMPro.TextMeshProUGUI tasksCompleted;
 
+    public TMPro.TextMeshProUGUI currentObjectiveName;
+    public TMPro.TextMeshProUGUI currentObjectiveCount;
+
+    public float objectiveTimeLeft = 0;
+
     public void StartGame()
     {
         EventManager.Instance.onGameStart?.Invoke();
@@ -36,4 +41,27 @@ public class MainMenu : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
         startButton.SetActive(true);
     }
+
+    private void Update()
+    {
+        string name = "";
+        Objective o = GameManager.Instance.TaskManager.activeTask?.GetCurrentObjective();
+    
+        if (o != null)
+        {
+            name = o.objectiveName;
+        }
+
+        currentObjectiveName.text = name;
+        string t = "";
+        if (objectiveTimeLeft > 0f)
+        {
+            t = Mathf.Ceil(objectiveTimeLeft).ToString();
+        }
+        if (Mathf.Ceil(objectiveTimeLeft) == 0)
+        currentObjectiveCount.text = t;
+
+        //Debug.Log(name);
+    }
+
 }

@@ -10,7 +10,7 @@ public class Owner : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log(EventManager.Instance);
+        //Debug.Log(EventManager.Instance);
         EventManager.Instance.taskCompleted += (task) => StartNewTask(taskDelay);
         EventManager.Instance.taskFailed += (task) => GameOver();
         EventManager.Instance.onGameStart += () => StartGame();

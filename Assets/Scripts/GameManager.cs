@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
         set => parallaxStrength = value;
     }
 
+    public MainMenu mainMenu;
+
     private void Awake()
     {
         if (Instance == null)
@@ -70,4 +72,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+
+   
 }

@@ -29,7 +29,7 @@ public class ObjectiveJump : Objective
     {
         if (GameManager.Instance.Player.CurrentState.stateType == PlayerStateType.Jumping && cd <= 0f)
         {
-            Debug.Log(cd);
+            //Debug.Log(cd);
             base.ObjectiveCompleted();
             Destroy(gameObject);
             return;
@@ -40,6 +40,7 @@ public class ObjectiveJump : Objective
         if (timeLimit > 0f)
         {
             objectiveTimeLeft -= Time.deltaTime;
+            GameManager.Instance.mainMenu.objectiveTimeLeft = Mathf.Max(0f, objectiveTimeLeft);
             if (objectiveTimeLeft <= 0f)
             {
                 base.ObjectiveFailed();
@@ -47,4 +48,5 @@ public class ObjectiveJump : Objective
             }
         }
     }
+
 }

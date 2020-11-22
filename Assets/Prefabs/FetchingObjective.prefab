@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0729608d55e2e4b8cd7ebf595b2c79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveName: Fetch Stick
   timeLimit: 15
   stickPrefab: {fileID: 7585174174203521189, guid: 76807e26e63d628468988c93310ff813, type: 3}

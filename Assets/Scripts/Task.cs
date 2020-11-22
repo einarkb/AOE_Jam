@@ -39,6 +39,7 @@ public class Task
             Msg(completeMessage, 2f);
             GameManager.Instance.ChatBubbleManager.PlayerThinking.ShowMessage(completePlayerThinking, 2f, 0.8f);
             EventManager.Instance.taskCompleted?.Invoke(this);
+            GameManager.Instance.TaskManager.activeTask = null;
 
         }
         else
@@ -53,11 +54,23 @@ public class Task
    
         Msg(failedMessage, 2f);
         EventManager.Instance.taskFailed?.Invoke(this);
+        GameManager.Instance.TaskManager.activeTask = null;
     }
 
     private void Msg(string text, float duration)
     {
         GameManager.Instance.ChatBubbleManager.OwnerSpeaking.ShowMessage(text, duration);
+    }
+
+    public Objective GetCurrentObjective()
+    {
+        
+        if (currentObjective > -1 && currentObjective < objectives.Count)
+        {
+            //Debug.Log(objectives[currentObjective]);
+            return objectives[currentObjective];
+        }
+        return null;
     }
 
 }

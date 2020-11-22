@@ -11,7 +11,7 @@ public class PlayerStateSitting : PlayerState
     public override void OnEnter()
     {
         playerAnimator.Anim.SetBool("Sitting", true);
-        Debug.Log("Sitting entered");
+        //Debug.Log("Sitting entered");
     }
 
     public override void OnExit()

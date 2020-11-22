@@ -46,7 +46,7 @@ public class CatchHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log(TryCatchOrReleaseItem());
+            TryCatchOrReleaseItem();
         }
     }
 

@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f364f0374bef0a94bb487d277482b82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveName: Sit
   timeLimit: 10
   timeToSit: 3
   SittingAreaTrigger: {fileID: 0}

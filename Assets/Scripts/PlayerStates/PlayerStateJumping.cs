@@ -25,7 +25,7 @@ public class PlayerStateJumping : PlayerState
     public override void OnEnter()
     {
         playerAnimator.Anim.SetBool("Jumping", true);
-        Debug.Log("Jumping entered");
+        //Debug.Log("Jumping entered");
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
     }
 

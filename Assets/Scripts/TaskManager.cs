@@ -25,6 +25,7 @@ public class TaskManager : MonoBehaviour
         Task t = GetRandomTask();
         if (t != null)
         {
+            activeTask = t;
             t.StartTask();
             return t;
         }

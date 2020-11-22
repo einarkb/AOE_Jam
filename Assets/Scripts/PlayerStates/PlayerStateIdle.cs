@@ -10,7 +10,7 @@ public class PlayerStateIdle : PlayerState
     public override void OnEnter()
     {
         playerAnimator.Anim.SetBool("Standing", true);
-        Debug.Log("Idle entered");
+        //Debug.Log("Idle entered");
     }
 
     public override void OnExit()

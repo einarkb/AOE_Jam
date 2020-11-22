@@ -38,7 +38,7 @@ public class ObjectiveSit : Objective
                     sitLeft -= Time.deltaTime;
                     if (sitLeft <= 0f)
                     {
-                        Debug.Log("goalComplete");
+                        //Debug.Log("goalComplete");
                         isActive = false;
                         base.ObjectiveCompleted();
                         Destroy(this.gameObject);
@@ -55,14 +55,18 @@ public class ObjectiveSit : Objective
             if (timeLimit > 0f)
             {
                 objectiveTimeLeft -= Time.deltaTime;
+                GameManager.Instance.mainMenu.objectiveTimeLeft = Mathf.Max(0f, objectiveTimeLeft);
                 if (objectiveTimeLeft <= 0f)
                 {
-                    Debug.Log("Failed");
+                    //Debug.Log("Failed");
                     base.ObjectiveFailed();
                     Destroy(this.gameObject);
                 }
             }
 
         }
+        Debug.Log(objectiveTimeLeft);
     }
+
+
 }

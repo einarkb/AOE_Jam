@@ -43,6 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4551291c655a843a725a2a67240000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 3
-  timeToSit: 3
-  SittingAreaTrigger: {fileID: 0}
+  objectiveName: Jump
+  timeLimit: 5

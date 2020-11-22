@@ -32,6 +32,6 @@ public class EventManager : MonoBehaviour
         {
             Instance = this;
         }
-        Debug.Log(EventManager.Instance);
+        //Debug.Log(EventManager.Instance);
     }
 }
